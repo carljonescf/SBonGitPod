@@ -31,12 +31,25 @@ ENV DOTNET_ROOT=/home/codespace/.dotnet
 # Add script to fix .NET Core pathing
 ADD symlinkDotNetCore.sh /tmp/codespace/symlinkDotNetCore.sh
 
+# Import the official AdoptOpenJDK GPG key by running the following command:
+RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
+
+
+sudo apt-get install -y software-properties-common
+
+
+# Import the AdoptOpenJDK DEB repository by running the following command:
+
+RUN sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+
+
+
  # Install packages, setup codespace user
 RUN apt-get update -yq\
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -yq install --no-install-recommends apt-utils dialog 2>&1 \
     && apt-get install -yq \
-        openjdk-11-jdk \
+        adoptopenjdk-11-hotspot \
         vim \
         sudo \
         xtail \
