@@ -35,12 +35,15 @@ ADD symlinkDotNetCore.sh /tmp/codespace/symlinkDotNetCore.sh
 RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
 
 
-sudo apt-get install -y software-properties-common
+
+RUN sudo apt-get install -y software-properties-common
 
 
 # Import the AdoptOpenJDK DEB repository by running the following command:
 
 RUN sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+
+
 
 
 
@@ -87,6 +90,14 @@ RUN apt-get update -yq\
     && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash \
     && apt-get install -yq git-lfs \
     && git lfs install \
+    #
+    # Install Gradle
+    #&& echo "Installing Gradle" \
+    #&& pwd \
+    #&& sudo curl -SsL -o gradle-6.5-bin.zip https://services.gradle.org/distributions/gradle-6.5-bin.zip \
+    #&& sudo mkdir /opt/gradle \
+    #&& sudo unzip -d /opt/gradle gradle-6.5-bin.zip \
+    #&& export PATH=$PATH:/opt/gradle/gradle-6.5/bin \
     #
     # Install PowerShell
     && curl -s https://packages.microsoft.com/keys/microsoft.asc | (OUT=$(apt-key add - 2>&1) || echo $OUT) \

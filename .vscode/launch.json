@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GitpodApplication<gitpod>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.gitpod.GitpodApplication",
+            "projectName": "gitpod",
+            "args": ""
+        }
+    ]
+}
