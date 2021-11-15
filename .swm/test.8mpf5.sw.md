@@ -11,7 +11,7 @@ This is my first test of Swimm. This is a controller. The return type should rea
 
 <br/>
 
-\`@RestController determines how Spring MVC handles the request.
+`@RestController` determines how Spring MVC handles the request.
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 src/main/java/com/example/gitpod/web/Hello.java
 ```java
